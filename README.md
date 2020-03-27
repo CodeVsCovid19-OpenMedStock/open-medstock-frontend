@@ -1,4 +1,6 @@
-# patient-zero
+# Patient Zero Frontend
+
+Frontend app for our project for #CodeVsCovid19 - https://devpost.com/software/patientzero
 
 ## Project setup
 ```
