@@ -1,27 +1,26 @@
 <template>
-  <div id="app">
-    <div class="container mx-auto">
-      <h1 class="text-4xl font-semibold">Open MedStock</h1>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <v-spacer></v-spacer>
 
-      <div class="text-center">
-        <div>
-          <btn>Ich habe Medikamente</btn>
+      <v-btn
+        href="https://github.com/CodeVsCovid19-Patient-Zero/open-medstock-frontend"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Github</span>
+        <v-icon>fab fa-github</v-icon>
+      </v-btn>
+    </v-app-bar>
 
-          <btn>Ich brauche Medikamente</btn>
-        </div>
-      </div>
-
-      <router-view />
-    </div>
-  </div>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import Button from "@/components/Button";
-
 export default {
-  components: {
-    btn: Button
-  }
+  name: "App",
 };
 </script>

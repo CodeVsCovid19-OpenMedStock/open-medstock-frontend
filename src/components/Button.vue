@@ -14,6 +14,6 @@
         border-blue-500
         hover:border-transparent rounded"
   >
-  <slot></slot>
+    <slot></slot>
   </button>
 </template>
