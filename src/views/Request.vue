@@ -8,7 +8,6 @@
 
         <v-divider class="my-10"></v-divider>
 
-        <h2>Request Drugs</h2>
 
         <drug-list-request></drug-list-request>
 
