@@ -4,6 +4,15 @@
       <v-spacer></v-spacer>
 
       <v-btn
+        href="https://devpost.com/software/openmedstock"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Devpost</span>
+        <v-icon>fas fa-code</v-icon>
+      </v-btn>
+
+      <v-btn
         href="https://github.com/CodeVsCovid19-OpenMedStock/open-medstock-frontend"
         target="_blank"
         text
