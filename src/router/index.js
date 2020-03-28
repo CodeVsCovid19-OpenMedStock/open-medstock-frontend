@@ -17,10 +17,28 @@ const routes = [
       import(/* webpackChunkName: "supply" */ "../views/Supply.vue")
   },
   {
+    path: "/supply/:drug/add",
+    name: "SupplyAdd",
+    component: () =>
+      import(/* webpackChunkName: "supply" */ "../views/SupplyEdit.vue")
+  },
+  {
+    path: "/supply/:drug/edit",
+    name: "SupplyEdit",
+    component: () =>
+      import(/* webpackChunkName: "supply" */ "../views/SupplyEdit.vue")
+  },
+  {
     path: "/request",
     name: "Request",
     component: () =>
       import(/* webpackChunkName: "request" */ "../views/Request.vue")
+  },
+  {
+    path: "/request/:id",
+    name: "RequestDrug",
+    component: () =>
+      import(/* webpackChunkName: "request" */ "../views/RequestDrug.vue")
   }
 ];
 
