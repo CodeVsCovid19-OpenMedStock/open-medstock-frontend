@@ -1,0 +1,3 @@
+{
+    "/stock/:medicine_name": "/stock?medicine.medicine_name=:medicine_name"
+}
