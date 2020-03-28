@@ -4,7 +4,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/CodeVsCovid19-Patient-Zero/open-medstock-frontend"
+        href="https://github.com/CodeVsCovid19-OpenMedStock/open-medstock-frontend"
         target="_blank"
         text
       >
