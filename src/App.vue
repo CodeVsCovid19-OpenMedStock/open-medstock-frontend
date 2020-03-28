@@ -1,6 +1,19 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <router-link to="/">
+          <v-img
+            alt="OpenMedStock Logo"
+            class="shrink mr-2"
+            contain
+            src="@/assets/logo.png"
+            transition="scale-transition"
+            width="64"
+          />
+        </router-link>
+      </div>
+
       <v-spacer></v-spacer>
 
       <v-btn

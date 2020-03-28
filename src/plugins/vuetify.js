@@ -10,5 +10,11 @@ export default new Vuetify({
     iconfont: "fa"
   },
   theme: {
+    themes: {
+      light: {
+        primary: '#2A9EAA',
+        secondary: '#A2DCA0'
+      }
+    }
   }
 });
