@@ -7,13 +7,11 @@
         <h2 class="mb-4">You are currently offering</h2>
         <stock-list :stock="stock"></stock-list>
 
-        <v-divider class="my-10"></v-divider>
+        <v-divider class="mt-10 mb-6"></v-divider>
 
         <h2 class="mb-4">Can you supply any of these drugs?</h2>
 
         <drug-list></drug-list>
-
-        <router-link to="/">back</router-link>
       </v-col>
     </v-row>
   </v-container>

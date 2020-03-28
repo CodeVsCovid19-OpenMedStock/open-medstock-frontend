@@ -7,8 +7,6 @@
         <v-divider class="my-10"></v-divider>
 
         <drug-list-request></drug-list-request>
-
-        <router-link to="/">back</router-link>
       </v-col>
     </v-row>
   </v-container>

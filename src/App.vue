@@ -1,18 +1,20 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <router-link to="/">
-          <v-img
-            alt="OpenMedStock Logo"
-            class="shrink mr-2"
-            contain
-            src="@/assets/logo.png"
-            transition="scale-transition"
-            width="64"
-          />
-        </router-link>
-      </div>
+      <router-link to="/">
+        <v-img
+          alt="OpenMedStock Logo"
+          class="shrink mr-2"
+          contain
+          src="@/assets/logo.png"
+          transition="scale-transition"
+          width="64"
+        />
+      </router-link>
+
+      <v-btn text class="ml-5" @click="goBack" v-if="notOnIntro">
+        <v-icon left>fas fa-chevron-left</v-icon> back
+      </v-btn>
 
       <v-spacer></v-spacer>
 
@@ -44,3 +46,19 @@
     </v-content>
   </v-app>
 </template>
+
+<script>
+export default {
+  computed: {
+    notOnIntro() {
+      return this.$route.name !== "Intro";
+    }
+  },
+
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
+  }
+}
+</script>
