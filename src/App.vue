@@ -36,7 +36,11 @@
     </v-app-bar>
 
     <v-content>
-      <router-view></router-view>
+      <v-row no-gutters class="mt-5">
+        <v-col lg="6" md="8" offset-lg="3" offset-md="2">
+          <router-view></router-view>
+        </v-col>
+      </v-row>
     </v-content>
   </v-app>
 </template>

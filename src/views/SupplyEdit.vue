@@ -5,42 +5,38 @@
         <h1 class="display-1 font-weight-bold mb-3">{{ drug.name }}</h1>
         <p>{{ drug.description }}</p>
 
-        <v-row no-gutters class="mt-5">
-          <v-col md="6" offset-md="3">
-            <v-divider></v-divider>
+        <v-divider></v-divider>
 
-            <v-form>
-              <v-text-field
-                v-model="stock.gtin"
-                label="GTIN Code"
-                required
-              ></v-text-field>
+        <v-form>
+          <v-text-field
+            v-model="stock.gtin"
+            label="GTIN Code"
+            required
+          ></v-text-field>
 
-              <v-text-field
-                v-model="stock.amount_packages"
-                label="How many packages?"
-                required
-                type="number"
-              ></v-text-field>
+          <v-text-field
+            v-model="stock.amount_packages"
+            label="How many packages?"
+            required
+            type="number"
+          ></v-text-field>
 
-              <div class="d-flex">
-                <v-text-field
-                  v-model="stock.amount_units"
-                  label="How many units per package?"
-                  required
-                  type="number"
-                ></v-text-field>
+          <div class="d-flex">
+            <v-text-field
+              v-model="stock.amount_units"
+              label="How many units per package?"
+              required
+              type="number"
+            ></v-text-field>
 
-                <v-radio-group v-model="stock.unit" row>
-                  <v-radio label="mg" value="mg"></v-radio>
-                  <v-radio label="ml" value="ml"></v-radio>
-                </v-radio-group>
-              </div>
+            <v-radio-group v-model="stock.unit" row>
+              <v-radio label="mg" value="mg"></v-radio>
+              <v-radio label="ml" value="ml"></v-radio>
+            </v-radio-group>
+          </div>
 
-              <v-btn color="primary" @click="submit">I can supply this drug</v-btn>
-            </v-form>
-          </v-col>
-        </v-row>
+          <v-btn color="primary" @click="submit">I can supply this drug</v-btn>
+        </v-form>
 
         <!-- <router-link to="/supply">back</router-link> -->
       </v-col>
