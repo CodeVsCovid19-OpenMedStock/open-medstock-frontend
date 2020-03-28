@@ -1,6 +1,7 @@
-# Patient Zero Frontend
+# OpenMedstock Frontend
 
-Frontend app for our project for #CodeVsCovid19 - https://devpost.com/software/patientzero
+Frontend app for [OpenMedStock](https://devpost.com/software/openmedstock),
+our project for [#CodeVsCovid19](https://www.codevscovid19.org/).
 
 ## Project setup
 ```

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container mx-auto">
-      <h1 class="text-4xl font-semibold">Patient Zero</h1>
+      <h1 class="text-4xl font-semibold">Open MedStock</h1>
 
       <div class="text-center">
         <div>
