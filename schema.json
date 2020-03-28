@@ -1,0 +1,168 @@
+########################################
+###  USER INTERFACE                  ###
+########################################
+
+GET /user/me/:username
+
+{
+	"username": "abcd",
+	"institution_name": "Apotheke Alpha",
+	"institution_type": "Apotheke",
+	"email_addresse": "alpha@alpha.com",
+	"phone_number": "+41123456789",
+	"mobile_number": "+41793456789"
+}
+
+POST /user
+
+{
+	"username": "abcd",
+	"institution_name": "Apotheke Alpha",
+	"institution_type": "Apotheke",
+	"contact_person": "Hans MÃ¼ller",
+	"email_addresse": "alpha@alpha.com",
+	"phone_number": "+41123456789",
+	"mobile_number": "+41793456789"
+}
+
+POST /user/login
+
+{
+	"username": "abcd"
+}
+
+########################################
+###  MEDICINE INTERFACE              ###
+########################################
+
+GET /medicine						## All Medicine
+
+[
+	{
+		"name": "Dafalgan",
+		"manufacturer": "Roche",
+		"descriptione": "Lorum ipsum dolor sit amet",
+		"substance": "Lorum ipsum dolor sit amet",
+	}
+]
+
+GET /medicine/:name					## Medicine by Name
+
+[
+	{
+		"medicine_id": 1234,
+		"name": "Dafalgan",
+		"manufacturer": "Roche",
+		"descriptione": "Lorum ipsum dolor sit amet",
+		"substance": "Lorum ipsum dolor sit amet",
+	}
+]
+
+GET /medicine/:substance	 		## Medicine by Substance
+
+[
+	{
+		"medicine_id": 1234,
+		"name": "Dafalgan",
+		"manufacturer": "Roche",
+		"descriptione": "Lorum ipsum dolor sit amet",
+		"substance": "Lorum ipsum dolor sit amet",
+	}
+]
+
+POST /medicine
+
+{
+	"medicine_id": null,
+	"name": "Dafalgan",
+	"manufacturer": "Roche",
+	"descriptione": "Lorum ipsum dolor sit amet",
+	"substance": "Lorum ipsum dolor sit amet",
+}
+
+PUT /medicine/:id
+
+{
+	"medicine_id": 1234,
+	"name": "Dafalgan",
+	"manufacturer": "Roche",
+	"descriptione": "Lorum ipsum dolor sit amet",
+	"substance": "Lorum ipsum dolor sit amet",
+}
+
+########################################
+###  STOCK INTERFACE                 ###
+########################################
+
+GET /stock/:medicine_name
+
+[
+	"supplier":	{
+		"institution_name": "Apotheke Alpha",
+		"institution_type": "Apotheke",
+		"contact_person": "Hans MÃ¼ller",
+		"phone_number": "+41123456789",
+		"mobile_number": "+41793456789"
+	},
+	"medicine": {
+		"medicine_id": 1234,
+		"medicine_name": "Dafalgan",
+		"manufacturer": "Roche",
+		"descriptione": "Lorum ipsum dolor sit amet",
+		"substance": "Lorum ipsum dolor sit amet",
+		"stock": {
+			"gtin": 7680207320267,
+			"amount_packages": 55,
+			"amount_units": 20,
+			"unit_size": 400,
+			"unit": "mg"
+		}
+	}
+]
+
+POST /stock/:username
+
+{
+	"gtin": 7680207320267,
+	"medicine_id": 1234,
+	"amount_packages": 55,
+	"amount_units": 20,
+	"unit_size": 400,
+	"unit": "mg"
+}
+
+
+PUT /stock/:username
+
+{
+	"gtin": 7680207320267,
+	"medicine_id": 1234,
+	"amount_packages": 55,
+	"amount_units": 20,
+	"unit_size": 400,
+	"unit": "mg"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
