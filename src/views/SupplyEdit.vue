@@ -1,56 +1,52 @@
 <template>
   <v-container>
-    <v-row class="text-center">
-      <v-col class="mb-4">
-        <v-alert dense outlined type="error" v-if="error">
-          Oops, something went wrong while saving. Please try again later.
-          {{ error }}
-        </v-alert>
+    <v-alert dense outlined type="error" v-if="error">
+      Oops, something went wrong while saving. Please try again later.
+      {{ error }}
+    </v-alert>
 
-        <h1 class="display-1 font-weight-bold mb-3">{{ drug.name }}</h1>
-        <p>{{ drug.description }}</p>
+    <h1 class="display-1 font-weight-bold mb-3">{{ drug.name }}</h1>
+    <p>{{ drug.description }}</p>
 
-        <v-form>
-          <div v-for="(stockItem, i) in stock" :key="i">
-            <v-divider class="my-4"></v-divider>
+    <v-form>
+      <div v-for="(stockItem, i) in stock" :key="i">
+        <v-divider class="my-4"></v-divider>
 
-            <v-text-field
-              v-model="stockItem.gtin"
-              label="GTIN Code"
-              required
-              hint="Global Trade Item Number (number beneath the barcode)"
-            ></v-text-field>
+        <v-text-field
+          v-model="stockItem.gtin"
+          label="GTIN Code"
+          required
+          hint="Global Trade Item Number (number beneath the barcode)"
+        ></v-text-field>
 
-            <v-text-field
-              v-model="stockItem.amount_packages"
-              label="How many packages?"
-              required
-              type="number"
-            ></v-text-field>
+        <v-text-field
+          v-model="stockItem.amount_packages"
+          label="How many packages?"
+          required
+          type="number"
+        ></v-text-field>
 
-            <div class="d-flex">
-              <v-text-field
-                v-model="stockItem.amount_units"
-                label="How many units per package?"
-                required
-                type="number"
-              ></v-text-field>
+        <div class="d-flex">
+          <v-text-field
+            v-model="stockItem.amount_units"
+            label="How many units per package?"
+            required
+            type="number"
+          ></v-text-field>
 
-              <v-radio-group v-model="stockItem.unit" row>
-                <v-radio label="mg" value="mg"></v-radio>
-                <v-radio label="ml" value="ml"></v-radio>
-              </v-radio-group>
-            </div>
-          </div>
+          <v-radio-group v-model="stockItem.unit" row>
+            <v-radio label="mg" value="mg"></v-radio>
+            <v-radio label="ml" value="ml"></v-radio>
+          </v-radio-group>
+        </div>
+      </div>
 
-          <v-btn outlined @click="addStock">Add another</v-btn>
-          <span class="mx-4">or</span>
-          <v-btn color="primary" @click="submit" :disabled="busy">Save</v-btn>
-        </v-form>
-
-        <!-- <router-link to="/supply">back</router-link> -->
-      </v-col>
-    </v-row>
+      <div class="text-center">
+        <v-btn outlined @click="addStock">Add another</v-btn>
+        <span class="mx-4">or</span>
+        <v-btn color="primary" @click="submit" :disabled="busy">Save</v-btn>
+      </div>
+    </v-form>
   </v-container>
 </template>
 
