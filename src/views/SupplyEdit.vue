@@ -70,11 +70,7 @@ export default {
 
   methods: {
     submit() {
-      http
-        .put(`/medicine/${this.$route.params.drug}/stock`, this.stock)
-        .then(response => {
-          console.log(response);
-        });
+      http.put(`/medicine/${this.$route.params.drug}/stock`, this.stock);
     },
 
     loadDrug(id) {
