@@ -1,3 +1,4 @@
 {
-    "/stock/:medicine_id": "/stock?medicine.medicine_id=:medicine_id"
+    "/stock/:medicine_id": "/stock?medicine.medicine_id=:medicine_id",
+    "/supplier/stock": "/supplier-stock"
 }

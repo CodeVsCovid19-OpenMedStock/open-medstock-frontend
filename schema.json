@@ -121,6 +121,38 @@ GET /stock/:medicine_id
 	}
 ]
 
+GET /supplier/stock
+Authorization: Bearer <token>
+<token> wird im Backend mal fix auf eine user id gemapped
+
+[
+	{
+		"medicine": {
+			"medicine_id": 1234,
+			"medicine_name": "Dafalgan",
+			"manufacturer": "Roche",
+			"description": "Lorum ipsum dolor sit amet",
+			"substance": "Lorum ipsum dolor sit amet",
+			"stock": [
+                {
+                    "gtin": 7680207320267,
+                    "amount_packages": 55,
+                    "amount_units": 20,
+                    "unit_size": 400,
+                    "unit": "mg"
+                },
+                {
+                    "gtin": 7680207320267,
+                    "amount_packages": 55,
+                    "amount_units": 20,
+                    "unit_size": 400,
+                    "unit": "mg"
+                }
+            ]
+		}
+    }
+]
+
 PUT /medicine/:medicine_id/stock
 
 {

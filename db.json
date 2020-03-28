@@ -18,6 +18,7 @@
     "stock": [
         {
             "supplier":	{
+                "supplier_id": 1,
                 "institution_name": "Apotheke Alpha",
                 "institution_type": "Apotheke",
                 "contact_person": "Hans Müller",
@@ -47,9 +48,10 @@
                     }
                 ]
             }
-        }, 
+        },
         {
             "supplier":	{
+                "supplier_id": 2,
                 "institution_name": "Apotheke Beta",
                 "institution_type": "Apotheke",
                 "contact_person": "Berta Boller",
@@ -72,6 +74,33 @@
                     }
                 ]
             }
+        }
+    ],
+    "supplier-stock": [
+        {
+            "medicine": {
+                "medicine_id": 1234,
+                "medicine_name": "Dafalgan",
+                "manufacturer": "Roche",
+                "description": "Lorum ipsum dolor sit amet",
+                "substance": "Lorum ipsum dolor sit amet"
+            },
+            "stock": [
+                {
+                    "gtin": 7680207320267,
+                    "amount_packages": 55,
+                    "amount_units": 20,
+                    "unit_size": 400,
+                    "unit": "mg"
+                },
+                {
+                    "gtin": 7680207320267,
+                    "amount_packages": 15,
+                    "amount_units": 10,
+                    "unit_size": 1000,
+                    "unit": "mg"
+                }
+            ]
         }
     ]
 }
