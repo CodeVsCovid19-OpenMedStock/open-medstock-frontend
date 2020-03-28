@@ -4,24 +4,63 @@
     <br />
     <v-card v-for="supplier in stock" :key="supplier.id" class="mb-4">
       <v-card-title>{{ supplier.supplier.institution_name }}</v-card-title>
-      <v-card-text class="text-left">
-        <v-icon medium>mdi-account</v-icon>
-        Contact: {{ supplier.supplier.contact_person }}
-        <br />
-        <v-icon medium>mdi-phone</v-icon>
-        Phone: {{ supplier.supplier.phone_number }}
-        <br />
-        <v-icon medium>mdi-phone</v-icon>
-        Mobile: {{ supplier.supplier.mobile_number }} 
-      </v-card-text>
-      
-        <v-card-text v-for="stockitem in supplier.medicine.stock " :key="stockitem.id" class="text-left">
-          <v-divider></v-divider><br>
-          <v-icon medium>mdi-package-variant-closed</v-icon> <b> {{ stockitem.amount_packages }} Packages </b>{{ supplier.medicine.medicine_name }} 
-                      {{ stockitem.unit_size }}{{ stockitem.unit }}  
-                      Units Per Package: {{ stockitem.amount_units }} (GTIN: {{ stockitem.gtin }})
-          
-        </v-card-text>
+
+      <v-list dense>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>fas fa-user</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="text-left">
+            <v-list-item-title>
+              Contact: {{ supplier.supplier.contact_person }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>fas fa-phone-alt</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="text-left">
+            <v-list-item-title>
+              Phone: {{ supplier.supplier.phone_number }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item>
+          <v-list-item-action></v-list-item-action>
+          <v-list-item-content class="text-left">
+            <v-list-item-title>
+              Mobile: {{ supplier.supplier.mobile_number }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list :three-line="true" dense>
+        <v-list-item
+          three-line
+          v-for="(stock, i) in supplier.medicine.stock" :key="i"
+        >
+          <v-list-item-icon>
+            <v-icon>fas fa-box</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="text-left">
+            <v-list-item-title>
+              {{ stock.amount_packages }} packages
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              {{ stock.amount_units }} x {{ stock.unit_size }} {{ stock.unit }}
+            </v-list-item-subtitle>
+            <v-list-item-subtitle>
+              GTIN: {{ stock.gtin }}
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-card>
   </div>
 </template>
@@ -36,7 +75,7 @@ export default {
     };
   },
   async mounted() {
-    http.get("/stock/1234").then(response => {
+    http.get(`/stock/${this.$route.params.id}`).then(response => {
       this.stock = response.data;
     });
   }

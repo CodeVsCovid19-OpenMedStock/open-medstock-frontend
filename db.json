@@ -1,14 +1,14 @@
 {
     "medicine": [
         {
-            "id": 1,
+            "id": 1234,
             "name": "Dafalgan",
             "manufacturer": "Roche",
             "description": "Lorum ipsum dolor sit amet",
             "substance": "Chloroquin"
         },
         {
-            "id": 2,
+            "id": 1234,
             "name": "Plaquenil",
             "manufacturer": "Novartis",
             "description": "Lorum ipsum dolor sit amet",

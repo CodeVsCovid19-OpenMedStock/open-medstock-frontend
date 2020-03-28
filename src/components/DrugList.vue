@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card v-for="drug in drugs" :key="drug.id" class="mb-4">
+    <v-card v-for="(drug, i) in drugs" :key="i" class="mb-4">
       <v-card-title>{{ drug.name }}</v-card-title>
       <v-card-text class="text-left">{{ drug.description }}</v-card-text>
       <v-card-actions>
