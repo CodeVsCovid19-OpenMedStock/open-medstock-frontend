@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">Welcome to OpenMedStock</h1>
+        <h1 class="display-1 font-weight-bold mb-3">Welcome to OpenMedStock</h1>
 
         <router-link to="/request">
           <v-btn block raised color="primary" class="mt-10">I need drugs</v-btn>
