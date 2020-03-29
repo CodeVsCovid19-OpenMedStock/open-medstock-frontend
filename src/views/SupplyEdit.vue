@@ -9,42 +9,53 @@
     <p>{{ drug.description }}</p>
 
     <v-form>
-      <div v-for="(stockItem, i) in stock" :key="i">
-        <v-divider class="my-4"></v-divider>
+      <div v-for="(stockItem, i) in stock" :key="i" class="d-flex">
+        <div class="flex-grow-1">
+          <v-divider class="my-4"></v-divider>
 
-        <v-text-field
-          v-model="stockItem.gtin"
-          label="GTIN Code"
-          required
-          hint="Global Trade Item Number (number beneath the barcode)"
-        ></v-text-field>
-
-        <v-text-field
-          v-model="stockItem.amount_packages"
-          label="How many packages?"
-          required
-          type="number"
-        ></v-text-field>
-
-        <v-text-field
-          v-model="stockItem.amount_units"
-          label="How many units per package?"
-          required
-          type="number"
-        ></v-text-field>
-
-        <div class="d-flex">
           <v-text-field
-            v-model="stockItem.unit_size"
-            label="Unit size"
+            v-model="stockItem.gtin"
+            :loading="loading"
+            label="GTIN Code"
+            required
+            hint="Global Trade Item Number (number beneath the barcode)"
+          ></v-text-field>
+
+          <v-text-field
+            v-model="stockItem.amount_packages"
+            :loading="loading"
+            label="How many packages?"
             required
             type="number"
           ></v-text-field>
 
-          <v-radio-group v-model="stockItem.unit" row class="ml-4">
-            <v-radio label="mg" value="mg"></v-radio>
-            <v-radio label="ml" value="ml"></v-radio>
-          </v-radio-group>
+          <v-text-field
+            v-model="stockItem.amount_units"
+            :loading="loading"
+            label="How many units per package?"
+            required
+            type="number"
+          ></v-text-field>
+
+          <div class="d-flex">
+            <v-text-field
+              v-model="stockItem.unit_size"
+              :loading="loading"
+              label="Unit size"
+              required
+              type="number"
+            ></v-text-field>
+
+            <v-radio-group v-model="stockItem.unit" row class="ml-4">
+              <v-radio label="mg" value="mg"></v-radio>
+              <v-radio label="ml" value="ml"></v-radio>
+            </v-radio-group>
+          </div>
+        </div>
+        <div class="pl-4">
+          <v-btn icon title="Remove this stock item" @click="removeItem(i)">
+            <v-icon>fas fa-times</v-icon>
+          </v-btn>
         </div>
       </div>
 
@@ -77,14 +88,15 @@ export default {
   data() {
     return {
       drug: {},
-      stock: [newStock()],
+      stock: [],
       error: "",
-      busy: false
+      busy: false,
+      loading: false
     };
   },
 
   mounted() {
-    this.loadDrug(this.$route.params.drug);
+    this.loadStock(this.$route.params.drug);
   },
 
   methods: {
@@ -104,14 +116,36 @@ export default {
         });
     },
 
-    loadDrug(id) {
-      http.get(`/medicine/${id}`).then(response => {
-        this.drug = response.data;
-      });
+    loadStock(drugId) {
+      this.loading = true;
+      return http
+        .get("/supplier/stock")
+        .then(response => {
+          if (response.data) {
+            const data = response.data.find(
+              item => item.medicine.medicine_id === drugId
+            );
+            this.drug = data.medicine;
+            if (data.stock.length > 0) {
+              this.stock = data.stock;
+            } else {
+              this.addStock();
+            }
+          }
+          this.loading = false;
+        })
+        .catch(err => {
+          this.error = err;
+          this.loading = false;
+        });
     },
 
     addStock() {
       this.stock.push(newStock());
+    },
+
+    removeItem(index) {
+      this.stock.splice(index, 1);
     }
   }
 };
