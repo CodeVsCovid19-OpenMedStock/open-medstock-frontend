@@ -8,12 +8,12 @@
     ></v-skeleton-loader>
 
     <div v-if="stock.length">
-      <h2 class="mb-4">You are currently offering</h2>
+      <h2 class="title mb-4">You are currently offering</h2>
       <stock-list :stock="stock" :loading="loading"></stock-list>
       <v-divider class="mt-10 mb-6"></v-divider>
     </div>
 
-    <h2 class="mb-4">Can you supply any of these meds?</h2>
+    <h2 class="title mb-4">Can you supply any of these meds?</h2>
 
     <drug-list :drugs="drugs" :loading="loading"></drug-list>
   </v-container>
