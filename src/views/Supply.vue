@@ -4,10 +4,11 @@
       <v-col class="mb-4">
         <h1 class="display-1 font-weight-bold mb-4">Supply</h1>
 
-        <h2 class="mb-4">You are currently offering</h2>
-        <stock-list :stock="stock"></stock-list>
-
-        <v-divider class="mt-10 mb-6"></v-divider>
+        <div v-if="stock.length">
+          <h2 class="mb-4">You are currently offering</h2>
+          <stock-list :stock="stock"></stock-list>
+          <v-divider class="mt-10 mb-6"></v-divider>
+        </div>
 
         <h2 class="mb-4">Can you supply any of these drugs?</h2>
 

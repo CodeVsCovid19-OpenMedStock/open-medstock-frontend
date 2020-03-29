@@ -4,7 +4,9 @@
       <v-card-title>{{ drug.name }}</v-card-title>
       <v-card-text class="text-left">{{ drug.description }}</v-card-text>
       <v-card-actions>
-        <router-link :to="{ name: 'SupplyAdd', params: { drug: drug.id } }">
+        <router-link
+          :to="{ name: 'SupplyAdd', params: { drug: drug.medicine_id } }"
+        >
           <v-btn text>Add Supply</v-btn>
         </router-link>
       </v-card-actions>
