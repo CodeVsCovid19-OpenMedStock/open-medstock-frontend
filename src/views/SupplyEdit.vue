@@ -26,15 +26,22 @@
           type="number"
         ></v-text-field>
 
+        <v-text-field
+          v-model="stockItem.amount_units"
+          label="How many units per package?"
+          required
+          type="number"
+        ></v-text-field>
+
         <div class="d-flex">
           <v-text-field
-            v-model="stockItem.amount_units"
-            label="How many units per package?"
+            v-model="stockItem.unit_size"
+            label="Unit size"
             required
             type="number"
           ></v-text-field>
 
-          <v-radio-group v-model="stockItem.unit" row>
+          <v-radio-group v-model="stockItem.unit" row class="ml-4">
             <v-radio label="mg" value="mg"></v-radio>
             <v-radio label="ml" value="ml"></v-radio>
           </v-radio-group>
