@@ -62,7 +62,8 @@ export default {
 
   methods: {
     goBack() {
-      this.$router.go(-1);
+      const { previousStep } = this.$route.meta;
+      this.$router.push({ name: previousStep });
     }
   }
 }
