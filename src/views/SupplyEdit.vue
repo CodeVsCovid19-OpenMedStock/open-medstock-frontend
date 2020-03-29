@@ -123,7 +123,7 @@ export default {
         .then(response => {
           if (response.data) {
             const data = response.data.find(
-              item => item.medicine.medicine_id === drugId
+              item => parseInt(item.medicine.medicine_id) === parseInt(drugId)
             );
             this.drug = data.medicine;
             if (data.stock.length > 0) {
