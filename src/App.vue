@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <v-spacer></v-spacer>
-      <v-btn text @click="goBack">
+      <v-btn text @click="goBack" v-if="notOnIntro">
         <v-icon left>fas fa-chevron-left</v-icon> back
       </v-btn>
 
