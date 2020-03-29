@@ -96,7 +96,7 @@ export default {
         .put(`/medicine/${this.$route.params.drug}/stock`, this.stock)
         .then(() => {
           this.busy = false;
-          this.router.push("/supply");
+          this.$router.push("/supply");
         })
         .catch(err => {
           this.error = err;

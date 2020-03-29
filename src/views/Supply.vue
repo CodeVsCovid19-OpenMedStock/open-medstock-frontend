@@ -6,7 +6,7 @@
 
         <div v-if="stock.length">
           <h2 class="mb-4">You are currently offering</h2>
-          <stock-list :stock="stock"></stock-list>
+          <stock-list :stock="stock" :loading="loadingStock"></stock-list>
           <v-divider class="mt-10 mb-6"></v-divider>
         </div>
 
@@ -26,7 +26,8 @@ import http from "@/core/http";
 export default {
   data() {
     return {
-      stock: []
+      stock: [],
+      loadingStock: false
     };
   },
   components: {
@@ -35,9 +36,11 @@ export default {
   },
 
   mounted() {
+    this.loadingStock = true;
     // todo: we need the auth token in order to get the actual stock for the user
     http.get('/supplier/stock').then(response => {
       this.stock = response.data;
+      this.loadingStock = false;
     });
   }
 }

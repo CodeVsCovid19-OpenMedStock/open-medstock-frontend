@@ -1,9 +1,23 @@
 <template>
   <div>
-    <v-card v-for="(drug, i) in stock" :key="i" class="mb-4">
-      <v-card-title>{{ drug.medicine.medicine_name }}</v-card-title>
+    <v-card v-for="(drug, i) in stock" :key="i" class="mb-4" :loading="loading">
+      <v-card-title>{{ drug.medicine.name }}</v-card-title>
+      <v-card-subtitle class="text-left">
+        {{ drug.medicine.description }}
+        <br>{{ drug.medicine.manufacturer }}
+      </v-card-subtitle>
 
       <v-list dense>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>fas fa-prescription-bottle-alt</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="text-left">
+            <v-list-item-title class="text-capitalize">
+              {{ drug.medicine.substance }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item v-for="(stock, i) in drug.stock" :key="i">
           <v-list-item-icon>
             <v-icon>fas fa-box</v-icon>
@@ -38,7 +52,11 @@ import http from "@/core/http";
 
 export default {
   props: {
-    stock: Array
+    stock: Array,
+    loading: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
