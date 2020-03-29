@@ -11,6 +11,15 @@ const routes = [
     component: Intro
   },
   {
+    path: "/login",
+    name: "Login",
+    meta: {
+      previousStep: "Intro"
+    },
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Login.vue")
+  },
+  {
     path: "/supply",
     name: "Supply",
     meta: {

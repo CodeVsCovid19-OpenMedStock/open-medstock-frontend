@@ -12,7 +12,7 @@
       <v-btn block raised color="primary" class="mt-10">I need meds</v-btn>
     </router-link>
 
-    <router-link to="/supply">
+    <router-link to="/login">
       <v-btn block raised color="primary" class="mt-10">
         I can provide meds
       </v-btn>
