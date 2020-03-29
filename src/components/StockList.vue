@@ -4,13 +4,22 @@
       <v-card-title>{{ drug.medicine.name }}</v-card-title>
       <v-card-subtitle class="text-left">
         {{ drug.medicine.description }}
-        <br>{{ drug.medicine.manufacturer }}
       </v-card-subtitle>
 
       <v-list dense>
         <v-list-item>
           <v-list-item-icon>
-            <v-icon>fas fa-prescription-bottle-alt</v-icon>
+            <v-icon title="Manufacturer">fas fa-industry</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="text-left">
+            <v-list-item-title class="text-capitalize">
+              {{ drug.medicine.manufacturer }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon title="Substance">fas fa-prescription-bottle-alt</v-icon>
           </v-list-item-icon>
           <v-list-item-content class="text-left">
             <v-list-item-title class="text-capitalize">
@@ -20,7 +29,7 @@
         </v-list-item>
         <v-list-item v-for="(stock, i) in drug.stock" :key="i">
           <v-list-item-icon>
-            <v-icon>fas fa-box</v-icon>
+            <v-icon title="Supply">fas fa-box</v-icon>
           </v-list-item-icon>
           <v-list-item-content class="text-left">
             <v-list-item-title>

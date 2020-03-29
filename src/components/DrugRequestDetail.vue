@@ -1,5 +1,10 @@
 <template>
   <div>
+    <v-skeleton-loader
+      v-if="loading"
+      type="card-heading, list-item-avatar-two-line@2"
+    ></v-skeleton-loader>
+
     <v-card v-for="supplier in stock" :key="supplier.id" class="mb-4">
       <v-card-title>{{ supplier.supplier.institution_name }}</v-card-title>
 
@@ -69,13 +74,22 @@ import http from "@/core/http";
 export default {
   data() {
     return {
-      stock: []
+      stock: [],
+      loading: false
     };
   },
   async mounted() {
-    http.get(`/stock/${this.$route.params.id}`).then(response => {
-      this.stock = response.data;
-    });
+    this.loadStock();
+  },
+
+  methods: {
+    loadStock() {
+      this.loading = true;
+      http.get(`/stock/${this.$route.params.id}`).then(response => {
+        this.stock = response.data;
+        this.loading = false;
+      });
+    }
   }
 };
 </script>

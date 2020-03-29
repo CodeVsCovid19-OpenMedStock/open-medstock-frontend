@@ -2,10 +2,11 @@
   <v-container class="text-center">
     <h1 class="display-1 font-weight-bold mb-4">Listed Drugs</h1>
 
-    <drug-list-request
-      :stock="stock"
-      :loading="loading"
-    ></drug-list-request>
+    <v-skeleton-loader
+      v-if="loading"
+      type="card-heading, list-item-three-line"
+    ></v-skeleton-loader>
+    <drug-list-request :stock="stock" :loading="loading"></drug-list-request>
   </v-container>
 </template>
 

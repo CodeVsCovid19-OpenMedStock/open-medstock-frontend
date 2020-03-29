@@ -2,6 +2,11 @@
   <v-container class="text-center">
     <h1 class="display-1 font-weight-bold mb-4">Supply</h1>
 
+    <v-skeleton-loader
+      type="list-item-avatar-two-line@2"
+      v-if="loading"
+    ></v-skeleton-loader>
+
     <div v-if="stock.length">
       <h2 class="mb-4">You are currently offering</h2>
       <stock-list :stock="stock" :loading="loading"></stock-list>
