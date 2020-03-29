@@ -20,7 +20,6 @@
       </router-link>
 
       <v-spacer></v-spacer>
-
     </v-app-bar>
 
     <v-content>
@@ -31,7 +30,7 @@
       </v-row>
     </v-content>
 
-    <v-bottom-navigation>
+    <v-bottom-navigation class="mt-10" horizontal>
       <v-btn
         href="https://devpost.com/software/openmedstock"
         target="_blank"
