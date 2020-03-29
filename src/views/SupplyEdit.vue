@@ -49,10 +49,12 @@
                 type="number"
               ></v-text-field>
 
-              <v-radio-group v-model="stockItem.unit" row class="ml-4">
-                <v-radio label="mg" value="mg"></v-radio>
-                <v-radio label="ml" value="ml"></v-radio>
-              </v-radio-group>
+              <v-select
+                label="Unit"
+                :items="units"
+                v-model="stockItem.unit"
+                class="ml-4"
+              ></v-select>
             </div>
           </div>
           <div class="pl-4">
@@ -91,6 +93,7 @@ export default {
 
   data() {
     return {
+      units: ["mg", "g", "ml"],
       drug: {},
       stock: [],
       error: "",
