@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: process.env.VUE_APP_API_URL
+  baseURL: process.env.VUE_APP_API_URL || "https://api.openmedstock.org"
 });
 
 http.interceptors.request.use(config => {
