@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h2>Institutions with Plaquenil on Stock</h2>
-    <br />
     <v-card v-for="supplier in stock" :key="supplier.id" class="mb-4">
       <v-card-title>{{ supplier.supplier.institution_name }}</v-card-title>
 
