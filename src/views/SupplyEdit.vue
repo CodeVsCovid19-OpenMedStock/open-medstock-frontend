@@ -123,18 +123,16 @@ export default {
         });
     },
 
+    // todo: maybe we have to get medicine and stock separately, as user may not have stock
     loadStock(drugId) {
       this.loading = true;
       return http
-        .get("/supplier/stock")
+        .get(`/supplier/stock/${drugId}`)
         .then(response => {
           if (response.data) {
-            const data = response.data.find(
-              item => parseInt(item.medicine.medicine_id) === parseInt(drugId)
-            );
-            this.drug = data.medicine;
-            if (data.stock.length > 0) {
-              this.stock = data.stock;
+            this.drug = response.data.medicine;
+            if (response.data.stock.length > 0) {
+              this.stock = response.data.stock;
             } else {
               this.addStock();
             }
