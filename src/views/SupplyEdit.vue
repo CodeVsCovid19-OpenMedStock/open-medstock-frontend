@@ -103,6 +103,7 @@ export default {
   },
 
   mounted() {
+    this.loadDrug(this.$route.params.drug);
     this.loadStock(this.$route.params.drug);
   },
 
@@ -123,6 +124,12 @@ export default {
         });
     },
 
+    loadDrug(drugId) {
+      http.get(`/medicine/${drugId}`).then(response => {
+        this.drug = response.data;
+      });
+    },
+
     // todo: maybe we have to get medicine and stock separately, as user may not have stock
     loadStock(drugId) {
       this.loading = true;
@@ -130,8 +137,8 @@ export default {
         .get(`/supplier/stock/${drugId}`)
         .then(response => {
           if (response.data) {
-            this.drug = response.data.medicine;
-            if (response.data.stock.length > 0) {
+            // this.drug = response.data.medicine;
+            if (response.data.stock && response.data.stock.length > 0) {
               this.stock = response.data.stock;
             } else {
               this.addStock();
