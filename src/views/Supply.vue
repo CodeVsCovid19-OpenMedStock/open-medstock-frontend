@@ -1,6 +1,6 @@
 <template>
   <v-container class="text-center">
-    <h1 class="display-1 font-weight-bold mb-4">Supply</h1>
+    <h1 class="headline font-weight-bold mb-4">Supply</h1>
 
     <v-skeleton-loader
       type="list-item-avatar-two-line@2"
@@ -13,7 +13,7 @@
       <v-divider class="mt-10 mb-6"></v-divider>
     </div>
 
-    <h2 class="mb-4">Can you supply any of these drugs?</h2>
+    <h2 class="mb-4">Can you supply any of these meds?</h2>
 
     <drug-list :drugs="drugs" :loading="loading"></drug-list>
   </v-container>

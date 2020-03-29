@@ -1,6 +1,6 @@
 <template>
   <v-container class="text-center">
-    <h1 class="display-1 font-weight-bold mb-4">Listed Drugs</h1>
+    <h1 class="headline font-weight-bold mb-4">Listed Meds</h1>
 
     <v-skeleton-loader
       v-if="loading"

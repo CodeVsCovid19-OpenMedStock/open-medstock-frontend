@@ -12,7 +12,7 @@
     ></v-skeleton-loader>
 
     <div v-if="!loading">
-      <h1 class="display-1 font-weight-bold mb-3">{{ drug.name }}</h1>
+      <h1 class="headline font-weight-bold mb-3">{{ drug.name }}</h1>
       <p>{{ drug.description }}</p>
 
       <v-form v-if="!loading">
