@@ -30,7 +30,9 @@
       </v-list>
 
       <v-card-actions>
-        <router-link :to="{ name: 'RequestDrug', params: { id: drug.medicine_id } }">
+        <router-link
+          :to="{ name: 'RequestDrug', params: { id: drug.medicine_id } }"
+        >
           <v-btn text>Request Supply</v-btn>
         </router-link>
       </v-card-actions>

@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-4">
-        <h1 class="mb-4">Institutions with {{drug.name}} on stock</h1>
+        <h1 class="mb-4">Institutions with {{ drug.name }} on stock</h1>
         <drug-list-request></drug-list-request>
       </v-col>
     </v-row>
@@ -11,7 +11,7 @@
 
 <script>
 import http from "@/core/http";
-import DrugListRequest from '@/components/DrugRequestDetail';
+import DrugListRequest from "@/components/DrugRequestDetail";
 
 export default {
   components: {
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       drug: {}
-    }
+    };
   },
 
   mounted() {
@@ -35,5 +35,5 @@ export default {
       });
     }
   }
-}
+};
 </script>

@@ -46,7 +46,8 @@
       <v-list :three-line="true" dense>
         <v-list-item
           three-line
-          v-for="(stock, i) in supplier.medicine.stock" :key="i"
+          v-for="(stock, i) in supplier.medicine.stock"
+          :key="i"
         >
           <v-list-item-icon>
             <v-icon>fas fa-box</v-icon>

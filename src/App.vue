@@ -45,7 +45,7 @@
         target="_blank"
         text
       >
-      <span class="mr-2">Github</span>
+        <span class="mr-2">Github</span>
         <v-icon>fab fa-github</v-icon>
       </v-btn>
     </v-bottom-navigation>
@@ -66,5 +66,5 @@ export default {
       this.$router.push({ name: previousStep });
     }
   }
-}
+};
 </script>
