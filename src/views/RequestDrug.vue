@@ -2,7 +2,9 @@
   <v-container>
     <v-row class="text-center">
       <v-col class="mb-4">
-        <h1 class="mb-4">Institutions with {{ drug.name }} on stock</h1>
+        <h1 class="headline font-weight-bold mb-4">
+          Institutions with {{ drug.name }} on stock
+        </h1>
         <drug-list-request></drug-list-request>
       </v-col>
     </v-row>

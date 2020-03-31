@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="headline font-weight-bold mb-3">Login</h1>
+    <h1 class="headline font-weight-bold mb-4">Login</h1>
 
     <p>Please log in first in order to register your supply</p>
 
